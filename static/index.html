@@ -3,7 +3,25 @@
         <title>VS Code Rocks!</title>
     </head>
     <body>
-        <h1>VS Code can do that?</h1>
-        <p>Yes it can!</p>
+        <button onclick="jugar('piedra')">Piedra</button>
+        <button onclick="jugar('papel')">Papel</button>
+        <button onclick="jugar('tijera')">Tijera</button>
+        <p id="resultado"></p>
+        <script>
+            function jugar(eleccionUsuario) {
+                var opciones = ['piedra', 'papel', 'tijera'];
+                var eleccionComputadora = opciones[Math.floor(Math.random() * opciones.length)];
+
+                if (eleccionUsuario == eleccionComputadora) {
+                    document.getElementById('resultado').innerText = "Es un empate";
+                } else if ((eleccionUsuario == 'piedra' && eleccionComputadora == 'tijera') ||
+                           (eleccionUsuario == 'papel' && eleccionComputadora == 'piedra') ||
+                           (eleccionUsuario == 'tijera' && eleccionComputadora == 'papel')) {
+                    document.getElementById('resultado').innerText = "¡Ganaste!";
+                } else {
+                    document.getElementById('resultado').innerText = "Perdiste";
+                }s
+            }
+        </script>
     </body>
 </html>
